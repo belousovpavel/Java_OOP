@@ -3,7 +3,7 @@ package org.example.Lesson1;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class DepositAccount extends Account {
+public class DepositAccount extends AbstractAccount {
 
     private LocalDate lastTake;
 
@@ -13,15 +13,31 @@ public class DepositAccount extends Account {
 
     @Override
     public void take(BigDecimal decrease) {
-        // lastTake = 2024-06-26
-        // now - 2024-06-26
-        // now - 1month = 2024 - 05 26
+        super.take(decrease);
+        lastTake = LocalDate.now();
+    }
 
-        if (LocalDate.now().minusMonths(1).isAfter(lastTake)){
-            super.take(decrease);
-            lastTake = LocalDate.now();
-        } else {
-            throw new IllegalArgumentException("Нельзя снть: не прощел период");
-        }
+    //    @Override
+//    public void take(BigDecimal decrease) {
+//        // lastTake = 2024-06-26
+//        // now - 2024-06-26
+//        // now - 1month = 2024 - 05 26
+//
+//        if (LocalDate.now().minusMonths(1).isAfter(lastTake)){
+//            super.take(decrease);
+//            lastTake = LocalDate.now();
+//        } else {
+//            throw new IllegalArgumentException("Нельзя снть: не прощел период");
+//        }
+//    }
+
+    @Override
+    protected boolean canPut(BigDecimal increase) {
+        return true;
+    }
+
+    @Override
+    protected boolean canTake(BigDecimal decrease) {
+        return LocalDate.now().minusMonths(1).isAfter(lastTake);
     }
 }

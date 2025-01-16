@@ -1,6 +1,5 @@
 package org.example.Lesson1;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
@@ -16,14 +15,14 @@ class AccountTest {
     @Test
     void testNewAccount(){
         // Тестируем, что новый акаунт имеет 0 средств
-        Account account = new Account();
+        AbstractAccount account = new AbstractAccount();
         //assert account.getAmount() == BigDecimal.ZERO;
         assertEquals(BigDecimal.ZERO, account.getAmount());
     }
 
     @Test
     void testPutAmount(){
-        Account account = new Account();
+        AbstractAccount account = new AbstractAccount();
         account.put(BigDecimal.valueOf(120));
 
         assertEquals(BigDecimal.valueOf(120), account.getAmount());
@@ -37,7 +36,7 @@ class AccountTest {
 
     @Test
     void testPutNegativeValue(){
-        Account account = new Account();
+        AbstractAccount account = new AbstractAccount();
         assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -51,7 +50,7 @@ class AccountTest {
 
     @Test
     void testTake(){
-        Account account = new Account();
+        AbstractAccount account = new AbstractAccount();
         account.put(BigDecimal.valueOf(100));
 
         account.take(BigDecimal.valueOf(50));

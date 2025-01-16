@@ -1,6 +1,5 @@
 package org.example.Lesson1;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,20 +20,18 @@ public class OOPintro {
         // работать с подтипами (в плане наследования)
         // своего аргумента.
 
-        printAccountState(new Account());
+        //printAccountState(new AbstractAccount());
         printAccountState(new DepositAccount());
         printAccountState(new CreditAccount());
 
-        List<Account> accounts = new ArrayList<>();
-        accounts.add(new Account());
+        List<AbstractAccount> accounts = new ArrayList<>();
+        //accounts.add(new AbstractAccount());
         accounts.add(new DepositAccount());
         accounts.add(new CreditAccount());
 
-
-
     }
 
-    private static void printAccountState(Account account) {
+    private static void printAccountState(AbstractAccount account) {
         System.out.println("Account = " + account.getClass().getName() + ", current account = " + account.getAmount());
     }
 
