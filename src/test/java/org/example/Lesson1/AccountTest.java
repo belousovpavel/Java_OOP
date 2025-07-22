@@ -10,19 +10,19 @@ import static org.junit.jupiter.api.Assertions.*;
 class AccountTest {
 
     //JUnit
-    // my-app.jar <- jinit.jar
+    // my-app.jar <- junit.jar
 
     @Test
     void testNewAccount(){
         // Тестируем, что новый акаунт имеет 0 средств
-        AbstractAccount account = new AbstractAccount();
+        Account account = new Account();
         //assert account.getAmount() == BigDecimal.ZERO;
         assertEquals(BigDecimal.ZERO, account.getAmount());
     }
 
     @Test
     void testPutAmount(){
-        AbstractAccount account = new AbstractAccount();
+        Account account = new Account();
         account.put(BigDecimal.valueOf(120));
 
         assertEquals(BigDecimal.valueOf(120), account.getAmount());
@@ -36,7 +36,7 @@ class AccountTest {
 
     @Test
     void testPutNegativeValue(){
-        AbstractAccount account = new AbstractAccount();
+        Account account = new Account();
         assertThrows(IllegalArgumentException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -50,7 +50,7 @@ class AccountTest {
 
     @Test
     void testTake(){
-        AbstractAccount account = new AbstractAccount();
+        Account account = new Account();
         account.put(BigDecimal.valueOf(100));
 
         account.take(BigDecimal.valueOf(50));
@@ -65,6 +65,7 @@ class AccountTest {
             }
         });
         assertEquals(BigDecimal.valueOf(25), account.getAmount());
+
     }
 
 }

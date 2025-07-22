@@ -20,18 +20,18 @@ public class OOPintro {
         // работать с подтипами (в плане наследования)
         // своего аргумента.
 
-        //printAccountState(new AbstractAccount());
+        printAccountState(new Account());
         printAccountState(new DepositAccount());
         printAccountState(new CreditAccount());
 
-        List<AbstractAccount> accounts = new ArrayList<>();
-        //accounts.add(new AbstractAccount());
+        List<Account> accounts = new ArrayList<>();
+        accounts.add(new Account());
         accounts.add(new DepositAccount());
         accounts.add(new CreditAccount());
 
     }
 
-    private static void printAccountState(AbstractAccount account) {
+    private static void printAccountState(Account account) {
         System.out.println("Account = " + account.getClass().getName() + ", current account = " + account.getAmount());
     }
 
