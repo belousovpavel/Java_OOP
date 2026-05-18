@@ -18,21 +18,14 @@ public class OOPIntro {
         // 3. Полиморфизм - способность функции работать с подтипами (в плане наследования)
         // своего аргумента без ограничений.
 
-        AbstractAccount account = new AbstractAccount(BigDecimal.TEN);
-
-        printAccount(new AbstractAccount());
+        printAccount(new Account());
         printAccount(new DepositAccount());
-        printAccount(new CreditAccount());
 
-        List<AbstractAccount> accounts = new ArrayList<>();
-        accounts.add(new AbstractAccount());
-        accounts.add(new DepositAccount());
-        accounts.add(new CreditAccount());
 
     }
 
-    private static void printAccount(AbstractAccount account) {
-        System.out.println("Account = " + account.getClass().getName() + ", current amount = " + account.getAmount());
+    private static void printAccount(Account account) {
+        System.out.println(account.getClass().getName());
     }
 
 }
