@@ -12,13 +12,13 @@ class AccountTest {
     @Test
     void testNewAccount() {
         // Тестируем что новый аккаунт имеет ноль средств
-        Account account = new Account();
+        AbstractAccount account = new AbstractAccount();
         assertEquals(BigDecimal.ZERO, account.getAmount());
     }
 
     @Test
     void testPutAmount() {
-        Account account = new Account();
+        AbstractAccount account = new AbstractAccount();
         account.put(BigDecimal.valueOf(100));
 
         assertEquals(BigDecimal.valueOf(100), account.getAmount());
@@ -32,7 +32,7 @@ class AccountTest {
 
     @Test
     void testPutNegative() {
-        Account account = new Account();
+        AbstractAccount account = new AbstractAccount();
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> account.put(BigDecimal.valueOf(-100)));
 

@@ -1,9 +1,5 @@
 package com.example.lesson1;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-
 public class OOPIntro {
 
     public static void main(String[] args) {
@@ -18,13 +14,13 @@ public class OOPIntro {
         // 3. Полиморфизм - способность функции работать с подтипами (в плане наследования)
         // своего аргумента без ограничений.
 
-        printAccount(new Account());
+//        printAccount(new AbstractAccount());
         printAccount(new DepositAccount());
 
 
     }
 
-    private static void printAccount(Account account) {
+    private static void printAccount(AbstractAccount account) {
         System.out.println(account.getClass().getName());
     }
 
