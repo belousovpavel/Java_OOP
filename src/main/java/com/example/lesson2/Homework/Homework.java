@@ -1,5 +1,7 @@
 package com.example.lesson2.Homework;
 
+import java.sql.SQLOutput;
+
 public class Homework {
 
     /**
@@ -85,7 +87,6 @@ public class Homework {
         public int getCurrentHp() {
             return currentHp;
         }
-        // FIXME: Дописать нужное
     }
 
     static class Hero implements HasHp, HasMana{
