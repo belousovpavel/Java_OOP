@@ -7,6 +7,7 @@ public class DepositAccount extends AbstractAccount {
 
     private LocalDate lastTake;
 
+
     public DepositAccount() {
         super();
         lastTake = LocalDate.now().minusMonths(2);
